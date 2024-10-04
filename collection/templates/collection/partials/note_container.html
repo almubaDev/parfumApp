@@ -1,0 +1,43 @@
+<div class="modal fade" id="notesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Notas:</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class='notes_classification'>
+                <h5>Salida</h5>
+                <h5>Media</h5>
+                <h5>Fondo</h5>
+            </div>
+            <div class='notes_container'>
+                <div class='notes_top note_card_container'>
+                    {% for note in fragrance.top_notes.all %}
+                        <div class='notes_card'>
+                            <p>{{ note.name }}</p>
+                            <img class='note_image' src="{{ note.url_image}}" alt="">
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class='notes_middle note_card_container'>
+                    {% for note in fragrance.middle_notes.all %}
+                        <div class='notes_card'>
+                            <p>{{ note.name }}</p>
+                            <img class='note_image' src="{{ note.url_image}}" alt="">
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class='notes_base note_card_container'>
+                    {% for note in fragrance.base_notes.all %}
+                        <div class='notes_card'>
+                            <p>{{ note.name }}</p>
+                            <img class='note_image' src="{{ note.url_image}}" alt="">
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>

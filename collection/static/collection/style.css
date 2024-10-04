@@ -1,0 +1,138 @@
+:root {
+    --text_color_primary:#1B4242;
+    --text_color_secondary: #9EC8B9;
+    --background_color: #092635;
+    --border_color: #5C8374;
+}
+.blog_main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.parfum_card {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 44px;
+    width: 70%;
+
+    .parfum_identification {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        width: 50%;
+
+        .product_img {
+            height: 100px;
+            width: 100px;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+
+    .parfum_time {
+        align-items: center;
+        display: flex;
+        justify-content: space-evenly;
+        width: 40%;
+
+        div {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+
+            h5 {
+                margin-bottom: 8px;
+            }
+        }
+    }
+    
+    .time_img {
+        height: 30px;
+        margin-bottom: 8px;
+        width: 30px;
+    }
+    .parfum_card-btn {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        margin-top: 12px;
+        width: 50%;
+
+        button {
+            color: var(--text_color_primary);
+            background-color: transparent;
+            border: none;
+            border-bottom: var(--border_color) 2px solid;
+            border-radius: 0%;
+            width: 100px;
+
+            &:focus {
+                outline: none;
+            }
+
+            &:active {
+                background: transparent;
+            }
+        }
+    }
+
+}
+
+.notes_classification {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 24px;
+    width: 100%;
+
+}
+
+.notes_container {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 14px;
+    width: 40%;
+
+    .note_card_container{
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin-bottom: 24px;
+
+        .notes_card {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+
+            p {
+                margin-bottom: 8px;
+            }
+
+
+        }
+    }
+}
+
+.notes_container {
+    width: 100%;
+    div{
+        .note_image {
+            height: 40px;
+            margin-bottom: 12px;
+            width: 40px;
+            
+        }
+    }
+}

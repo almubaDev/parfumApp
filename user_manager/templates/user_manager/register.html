@@ -1,0 +1,23 @@
+{% extends "user_manager/base.html" %}
+
+{% block content %}
+    <div class="col-10 col-lg-4 col-xl-3 login d-flex flex-column">
+      <h4 class="form_title">Crear una Cuenta</h4>
+      <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit">Registrarse</button>
+      </form>
+    </div>
+  {% if errors %}
+    <div class="list_error_container">
+        <h4>Vuelva ingresar los datos</h4>
+        {% for fields, error_list in errors.items  %}
+        <p>{{error_list}}</p>
+            
+        {% endfor %}
+    </div>
+  {% endif %}
+{% endblock content %}
+
+

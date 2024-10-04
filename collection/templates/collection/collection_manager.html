@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+{% static "collection/style.css" %}
+{% endblock css %}
+
+{% block title_page %}
+    Recomendaciones
+{% endblock title_page %}
+
+
+{% block main %}
+<div class='blog_main'>
+{% for fragrance in fragrances  %}
+{% include "collection/partials/card_parfum_blog.html" %}
+{% endfor %}
+</div>
+
+{% endblock main %}

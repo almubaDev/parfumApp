@@ -1,0 +1,13 @@
+{% extends "user_manager/base.html" %}
+{% block content %}
+  <div class="col-10 col-lg-4 col-xl-3 login d-flex flex-column">
+      <h4 class="form_title">Inicia sesión</h4>
+      <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Ingresar</button>
+      </form>
+      <a class='link_reset_pass' href="{% url 'password_reset' %}">¿Olvidó su contraseña?</a>
+      <a class='link_reset_pass' href="{% url 'register' %}">Crear una cuenta</a>
+  </div>
+{% endblock content %}

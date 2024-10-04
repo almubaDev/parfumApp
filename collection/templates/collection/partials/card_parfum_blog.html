@@ -1,0 +1,44 @@
+{% load static %}
+
+<div class='parfum_card'>
+    <div class='parfum_identification'>
+        <img class='product_img' src="{{fragrance.url_image}}" alt="">
+        <div>
+            <h3>{{fragrance.name}}</h3>
+            <p>{{fragrance.brand.name}}</p>
+        </div>
+        <div class='parfum_time'>
+            <div class='time_of_day_container'>
+                <h5>Hora</h5>
+                {% if fragrance.get_time_of_day_display == 'day' %}
+                    <img class='time_img' src="{% static "collection/img/sun.svg" %}" alt="sun icon">
+                {% else %}
+                     <img class='time_img' src="{% static "collection/img/moon.svg" %}" alt="moon icon">
+                {% endif %}
+            </div>
+            <div class='seasons_of_year_container'>
+                <h5>Estación</h5>
+                {% if fragrance.get_seasons_of_year_display == 'summer'%}
+                    <img class='time_img' src="{% static "collection/img/moon.svg" %}" alt="moon icon">
+                {% elif fragrance.get_seasons_of_year_display == 'fall' %}
+                    <img  src="{% static "collection/img/moon.svg" %}" alt="moon icon">
+                {% elif fragrance.get_seasons_of_year_display == 'winter' %}
+                    <img class='time_img' src="{% static "collection/img/moon.svg" %}" alt="moon icon">
+                {% elif fragrance.get_seasons_of_year_display == 'spring' %}
+                    <img class='time_img' src="{% static "collection/img/spring.svg" %}" alt="flower icon">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% include "collection/partials/clasification_container.html" %}
+    <div class='parfum_card-btn'>
+        <button id='comment-btn' type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#commentModal">
+            Comentario
+        </button>
+        <button id='notes-btn' type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#notesModal">
+            Notas
+        </button>
+    </div>
+</div>
+{% include "collection/partials/note_container.html" %}
+{% include "collection/partials/parfum_opinion.html" %}
