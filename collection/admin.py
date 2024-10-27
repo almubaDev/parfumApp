@@ -16,6 +16,7 @@ admin.site.register(Brand)
 
 
 class FragranceAdmin(admin.ModelAdmin):
+    filter_horizontal = ('top_notes', 'middle_notes', 'base_notes')
     form = FragranceAdminForm
     ordering = ['name']
     

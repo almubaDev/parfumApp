@@ -6,6 +6,7 @@ from user_manager.models import CustomUser
 class Note(models.Model):
     name = models.CharField(max_length=150)
     url_image = models.URLField(default='No disponible', null=True, blank=True) 
+    
     def __str__(self):
         return self.name
    
@@ -19,7 +20,8 @@ class Brand(models.Model):
 
 TIME_OF_DAY = [
     ('d','day'),
-    ('n', 'night')
+    ('n', 'night'),
+    ('t', 'total')
 ]
 
 SEASONS_OF_YEAR = [
@@ -32,6 +34,7 @@ SEASONS_OF_YEAR = [
 class Fragrance(models.Model):
     url_image = models.URLField(default='No disponible', blank=True, null=True)
     name = models.CharField( max_length=250)
+    concentration = models.CharField(max_length=50, default='Desconocido')
     brand = models.ForeignKey(Brand, verbose_name='brand',on_delete=models.CASCADE)
     top_notes = models.ManyToManyField(Note, related_name='note_top', verbose_name='top_notes')
     middle_notes = models.ManyToManyField(Note, related_name='note_middle', verbose_name='middle_notes')

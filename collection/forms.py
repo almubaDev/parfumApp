@@ -5,14 +5,13 @@ from .models import Fragrance
 
 
 class FragranceAdminForm(forms.ModelForm):
-    rating = forms.IntegerField(
+    rating_admin = forms.IntegerField(
         widget=forms.NumberInput(attrs={
             'type': 'number',
             'min': '0',
             'max': '5',
             'step': '1',
-        }),
-        label="Calificación",
+        })
     )
 
     class Meta:

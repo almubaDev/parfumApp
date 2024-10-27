@@ -11,9 +11,13 @@
 
 
 {% block main %}
+<div class='filter_manager'>
+    <input type="text" id="product_search" class="product_search-input" placeholder="Buscar fragancia..." >
+    <button id='reset-filter'>Quitar filtros</button>
+</div>
 <div class='blog_main'>
 {% for fragrance in fragrances  %}
-{% include "collection/partials/card_parfum_blog.html" %}
+    {% include "collection/partials/card_parfum_blog.html" %}
 {% endfor %}
 </div>
 

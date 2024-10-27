@@ -1,29 +1,49 @@
 {% load static %}
 
-<div class='parfum_card'>
+<div class='parfum_card'  
+data-top-notes="{{ fragrance.top_notes.all|join:',' }}" 
+data-middle-notes="{{ fragrance.middle_notes.all|join:',' }}" 
+data-base-notes="{{ fragrance.base_notes.all|join:',' }}"
+data-time="{{ fragrance.get_time_of_day_display|lower }}"
+data-season="{{ fragrance.get_seasons_of_year_display|lower }}"
+>
     <div class='parfum_identification'>
         <img class='product_img' src="{{fragrance.url_image}}" alt="">
         <div>
             <h3>{{fragrance.name}}</h3>
+            <h6>{{fragrance.concentration}}</h6>
             <p>{{fragrance.brand.name}}</p>
         </div>
         <div class='parfum_time'>
-            <div class='time_of_day_container'>
+            <div class='time_of_day_container'
+            data-time="
+            {% if fragrance.get_time_of_day_display == 'day' %}day
+            {% elif fragrance.get_time_of_day_display == 'night' %}night
+            {% else %}total
+            {% endif %}">
                 <h5>Hora</h5>
                 {% if fragrance.get_time_of_day_display == 'day' %}
                     <img class='time_img' src="{% static "collection/img/sun.svg" %}" alt="sun icon">
-                {% else %}
+                {% elif fragrance.get_time_of_day_display == 'night' %}
                      <img class='time_img' src="{% static "collection/img/moon.svg" %}" alt="moon icon">
+                {% else %}
+                     <img class='time_img' src="{% static "collection/img/sum_moon.svg" %}" alt="moon icon">
                 {% endif %}
             </div>
-            <div class='seasons_of_year_container'>
+            <div class='seasons_of_year_container'
+            data-season="
+            {% if fragrance.get_seasons_of_year_display == 'summer'%}summer
+            {% elif fragrance.get_seasons_of_year_display == 'fall' %}fall
+            {% elif fragrance.get_seasons_of_year_display == 'winter' %}winter
+            {% elif fragrance.get_seasons_of_year_display == 'spring' %}spring
+            {% endif %}">
                 <h5>Estación</h5>
                 {% if fragrance.get_seasons_of_year_display == 'summer'%}
-                    <img class='time_img' src="{% static "collection/img/moon.svg" %}" alt="moon icon">
+                    <img class='time_img' src="{% static "collection/img/summer.svg" %}" alt="summer icon">
                 {% elif fragrance.get_seasons_of_year_display == 'fall' %}
-                    <img  src="{% static "collection/img/moon.svg" %}" alt="moon icon">
+                    <img class='time_img' src="{% static "collection/img/fall.svg" %}" alt="fall icon">
                 {% elif fragrance.get_seasons_of_year_display == 'winter' %}
-                    <img class='time_img' src="{% static "collection/img/moon.svg" %}" alt="moon icon">
+                    <img class='time_img' src="{% static "collection/img/winter.svg" %}" alt="winter icon">
                 {% elif fragrance.get_seasons_of_year_display == 'spring' %}
                     <img class='time_img' src="{% static "collection/img/spring.svg" %}" alt="flower icon">
                 {% endif %}
@@ -32,10 +52,10 @@
     </div>
     {% include "collection/partials/clasification_container.html" %}
     <div class='parfum_card-btn'>
-        <button id='comment-btn' type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#commentModal">
-            Comentario
+        <button id='comment-btn' type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#commentModal-{{ fragrance.id }}">
+            Reseña
         </button>
-        <button id='notes-btn' type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#notesModal">
+        <button id='notes-btn' type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#notesModal-{{ fragrance.id }}">
             Notas
         </button>
     </div>

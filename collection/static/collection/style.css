@@ -4,6 +4,7 @@
     --background_color: #092635;
     --border_color: #5C8374;
 }
+
 .blog_main {
     align-items: center;
     display: flex;
@@ -22,12 +23,12 @@
     .parfum_identification {
         align-items: center;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: space-between;
         width: 50%;
 
         .product_img {
-            height: 100px;
+            height: 120px;
+            margin-right: 8px;
             width: 100px;
         }
 
@@ -41,11 +42,12 @@
     .parfum_time {
         align-items: center;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
         width: 40%;
 
         div {
             align-items: center;
+            cursor: pointer;
             display: flex;
             flex-direction: column;
 
@@ -74,7 +76,7 @@
             border: none;
             border-bottom: var(--border_color) 2px solid;
             border-radius: 0%;
-            width: 100px;
+            width: 80px;
 
             &:focus {
                 outline: none;
@@ -127,12 +129,39 @@
 
 .notes_container {
     width: 100%;
+
     div{
+        &:hover {
+            cursor: pointer;
+        }
         .note_image {
             height: 40px;
             margin-bottom: 12px;
             width: 40px;
             
+        }
+    }
+}
+
+
+@media screen and (width <= 500px) {
+    .parfum_card {
+        width: 90%;
+
+        .parfum_identification {
+            flex-direction: column;
+            width: 100%;
+
+            .parfum_time {
+                flex-direction: row;
+                justify-content: space-around;
+                width: 100%;
+            
+                div {
+                    width: 40%;
+                }
+            }
+
         }
     }
 }
